@@ -32,6 +32,8 @@ replace(
 )
 ```
 
+正式使用是也可以使用`go get github.com/tinybear1976/redisdb2`进行引用
+
 ## main.go
 
 连接和基本操作。当引用程序开始时，可以进行多个连接的初始化，即New()，每个连接初始化后，连接池指针就被记录在模块内部，直到使用Destroy()，手动销毁所有的连接池指针。在进行后续的操作时，首先需要申请连接对象指针，申请成功后，可以通过这个连接指针，进行SET、GET、DEL、KEYS、HMSET、HMGET、HGETALL、EXISTS操作，单次或多次操作后，必须显式性调用Disconnect关闭该连接。如果彻底不需要连接，可以使用Destroy销毁所有的连接池。
