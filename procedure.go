@@ -10,7 +10,7 @@ import (
 func Connect(serverTag string) (*redis.Conn, error) {
 	pool, ok := serverTags[serverTag]
 	if !ok {
-		return nil, errors.New(fmt.Sprintf("redis[%s] not existing", serverTag))
+		return nil, fmt.Errorf("redis[%s] not existing", serverTag)
 	}
 	redisClient := pool.Get()
 	return &redisClient, nil
